@@ -1,0 +1,72 @@
+{
+  "name": "@mllull/json-table-print",
+  "version": "0.1.0",
+  "packageManager": "pnpm@7.29.1",
+  "description": "Renders a HTML Table from JSON data to a new browser tab and prints the table.",
+  "author": "Mateu Llull <mateullull88@gmail.com>",
+  "license": "MIT",
+  "homepage": "https://github.com/mllull/json-table-print#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mllull/json-table-print.git"
+  },
+  "bugs": {
+    "url": "https://github.com/mllull/json-table-print/issues"
+  },
+  "keywords": [
+    "json",
+    "table",
+    "tab"
+  ],
+  "sideEffects": false,
+  "type": "module",
+  "files": [
+    "dist",
+    "LICENSE",
+    "README.md"
+  ],
+  "main": "dist/json-print-table.umd.cjs",
+  "module": "dist/json-print-table.js",
+  "types": "dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/json-print-table.js",
+      "require": "./dist/json-print-table.umd.cjs"
+    }
+  },
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc && yarn lint:fix && vite build",
+    "preview": "vite preview",
+    "lint": "prettier -c --parser typescript \"{src}/**/*.[jt]s?(x)\"",
+    "lint:fix": "yarn lint --write",
+    "release": "bash scripts/release.sh",
+    "changelog": "conventional-changelog -p angular -i CHANGELOG.md -s -r 1"
+  },
+  "devDependencies": {
+    "conventional-changelog-cli": "^2.2.2",
+    "lint-staged": "^13.2.0",
+    "prettier": "^2.8.4",
+    "typescript": "^4.9.5",
+    "vite": "^4.1.4",
+    "yorkie": "^2.0.0"
+  },
+  "dependencies": {
+    "@unocss/core": "^0.48.5",
+    "@unocss/preset-uno": "^0.48.5",
+    "vite-plugin-dts": "^1.7.3"
+  },
+  "gitHooks": {
+    "pre-commit": "lint-staged",
+    "commit-msg": "node scripts/verifyCommit.js"
+  },
+  "lint-staged": {
+    "*.js": [
+      "prettier --write"
+    ],
+    "*.ts?(x)": [
+      "prettier --parser=typescript --write"
+    ]
+  }
+}
