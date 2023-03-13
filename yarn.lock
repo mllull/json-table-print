@@ -271,35 +271,6 @@
   resolved "https://registry.yarnpkg.com/@types/normalize-package-data/-/normalize-package-data-2.4.1.tgz#d3357479a0fdfdd5907fe67e17e0a85c906e1301"
   integrity sha512-Gj7cI7z+98M282Tqmp2K5EIsoouUEzbBJhQQzDE3jSIRk6r9gsz0oUokqIUR4u1R3dMHo0pDHM7sNOHyhulypw==
 
-"@unocss/core@0.48.5", "@unocss/core@^0.48.5":
-  version "0.48.5"
-  resolved "https://registry.yarnpkg.com/@unocss/core/-/core-0.48.5.tgz#879edbf194c4b00c98b0f6a1c867acdbe2f5df50"
-  integrity sha512-goidlxqDEW14yYzLIqyUsoVPvrq3BuxvzY+87tulfHtiHWXd7fITSjHu80Bn0J6LZm1bVn2/D5nfE7ZLU/uW8g==
-
-"@unocss/preset-mini@0.48.5":
-  version "0.48.5"
-  resolved "https://registry.yarnpkg.com/@unocss/preset-mini/-/preset-mini-0.48.5.tgz#d0ca25428c7dd85fc7f0a6594bdda2b9f8cdf189"
-  integrity sha512-jMKUCkbKsgLkEAeaB7qV/ExZ1W9yAnRQ/PwrnGnxbIIAxDIylfPDBL2bR2w2TucHblpqCf6Twb09r1F6qfy3yQ==
-  dependencies:
-    "@unocss/core" "0.48.5"
-
-"@unocss/preset-uno@^0.48.5":
-  version "0.48.5"
-  resolved "https://registry.yarnpkg.com/@unocss/preset-uno/-/preset-uno-0.48.5.tgz#52c4b81e892cfe490c944bc87d49f8f5aff7b4ca"
-  integrity sha512-D/vVO1fgFll5IpoE92BVhKFkaejJAhux0DVAtRC/VUwOR0NE3CmRlTct+mBRO938aeuiELxFysuO0hNMDpTmeA==
-  dependencies:
-    "@unocss/core" "0.48.5"
-    "@unocss/preset-mini" "0.48.5"
-    "@unocss/preset-wind" "0.48.5"
-
-"@unocss/preset-wind@0.48.5":
-  version "0.48.5"
-  resolved "https://registry.yarnpkg.com/@unocss/preset-wind/-/preset-wind-0.48.5.tgz#d52559ce9774d11410ad02a4bf10b32125ae52e9"
-  integrity sha512-uSlViwl+1mJeClxJcwE6QA3SIOnOpL+Nes8VeO4NQADhn8ywhgjouAi2fy/gxQAcGtAV5PODn2jrG2M80+Ghkw==
-  dependencies:
-    "@unocss/core" "0.48.5"
-    "@unocss/preset-mini" "0.48.5"
-
 JSONStream@^1.0.4:
   version "1.3.5"
   resolved "https://registry.yarnpkg.com/JSONStream/-/JSONStream-1.3.5.tgz#3208c1f08d3a4d99261ab64f92302bc15e111ca0"

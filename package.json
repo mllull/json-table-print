@@ -37,7 +37,7 @@
   },
   "scripts": {
     "dev": "vite",
-    "build": "tsc && yarn lint:fix && vite build",
+    "build": "tsc && vite build",
     "preview": "vite preview",
     "lint": "prettier -c --parser typescript \"{src}/**/*.[jt]s?(x)\"",
     "lint:fix": "yarn lint --write",
@@ -53,8 +53,6 @@
     "yorkie": "^2.0.0"
   },
   "dependencies": {
-    "@unocss/core": "^0.48.5",
-    "@unocss/preset-uno": "^0.48.5",
     "vite-plugin-dts": "^1.7.3"
   },
   "gitHooks": {

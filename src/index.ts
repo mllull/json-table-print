@@ -1,20 +1,22 @@
-import { createGenerator } from "@unocss/core";
-import { presetUno } from "@unocss/preset-uno";
-
 export interface printTableHeadersType {
   [key: string]: string;
 }
 
+export interface printTableElementsType {
+  pageTitle?: string;
+  table?: string;
+  thead?: string;
+  th?: string;
+  tbody?: string;
+  tr?: string;
+  td?: string;
+}
+
 export interface printTableOptionsType {
   pageTitle?: string;
-  pageTitleClass?: string;
   headers: printTableHeadersType;
-  tableClass?: string;
-  theadClass?: string;
-  thClass?: string;
-  tbodyClass?: string;
-  trClass?: string;
-  tdClass?: string;
+  classes?: printTableElementsType;
+  style?: string;
   linkCSSLib?: string;
 }
 
@@ -29,18 +31,15 @@ export const printTable = async (
   options: printTableOptionsType,
   data: any
 ): Promise<boolean> => {
-  const unoClasses: string[] = [];
-
   let container = document.createElement("div");
 
   if (options && options.pageTitle) {
     let p = document.createElement("p");
 
-    if (options && options.pageTitleClass) {
-      let classes = options.pageTitleClass.split(" ");
+    if (options && options.classes?.pageTitle) {
+      let classes = options.classes.pageTitle.split(" ");
 
       classes.forEach((cssClass: any) => {
-        if (!unoClasses.includes(cssClass)) unoClasses.push(cssClass);
         p.classList.add(cssClass);
       });
     }
@@ -56,20 +55,18 @@ export const printTable = async (
   let header = document.createElement("thead");
   let headerTr = document.createElement("tr");
 
-  if (options && options.tableClass) {
-    let classes = options.tableClass.split(" ");
+  if (options && options.classes?.table) {
+    let classes = options.classes.table.split(" ");
 
     classes.forEach((cssClass: any) => {
-      if (!unoClasses.includes(cssClass)) unoClasses.push(cssClass);
       table.classList.add(cssClass);
     });
   }
 
-  if (options && options.theadClass) {
-    let classes = options.theadClass.split(" ");
+  if (options && options.classes?.thead) {
+    let classes = options.classes.thead.split(" ");
 
     classes.forEach((cssClass: any) => {
-      if (!unoClasses.includes(cssClass)) unoClasses.push(cssClass);
       header.classList.add(cssClass);
     });
   }
@@ -83,11 +80,10 @@ export const printTable = async (
 
     th.appendChild(textNode);
 
-    if (options && options.thClass) {
-      let classes = options.thClass.split(" ");
+    if (options && options.classes?.th) {
+      let classes = options.classes.th.split(" ");
 
       classes.forEach((cssClass: any) => {
-        if (!unoClasses.includes(cssClass)) unoClasses.push(cssClass);
         th.classList.add(cssClass);
       });
     }
@@ -101,11 +97,10 @@ export const printTable = async (
   if (data) {
     let body = document.createElement("tbody");
 
-    if (options && options.tbodyClass) {
-      let classes = options.tbodyClass.split(" ");
+    if (options && options.classes?.tbody) {
+      let classes = options.classes.tbody.split(" ");
 
       classes.forEach((cssClass: any) => {
-        if (!unoClasses.includes(cssClass)) unoClasses.push(cssClass);
         body.classList.add(cssClass);
       });
     } else {
@@ -114,11 +109,10 @@ export const printTable = async (
     data.forEach((record: any) => {
       let tr = document.createElement("tr");
 
-      if (options && options.trClass) {
-        let classes = options.trClass.split(" ");
+      if (options && options.classes?.tr) {
+        let classes = options.classes.tr.split(" ");
 
         classes.forEach((cssClass: any) => {
-          if (!unoClasses.includes(cssClass)) unoClasses.push(cssClass);
           tr.classList.add(cssClass);
         });
       }
@@ -127,11 +121,10 @@ export const printTable = async (
         let column = Object.keys(options.headers)[i];
         let td = document.createElement("td");
 
-        if (options && options.tdClass) {
-          let classes = options.tdClass.split(" ");
+        if (options && options.classes?.td) {
+          let classes = options.classes.td.split(" ");
 
           classes.forEach((cssClass: any) => {
-            if (!unoClasses.includes(cssClass)) unoClasses.push(cssClass);
             td.classList.add(cssClass);
           });
         }
@@ -150,11 +143,6 @@ export const printTable = async (
 
   container.appendChild(table);
 
-  const generator = createGenerator({
-    presets: [presetUno()],
-  });
-  const { css } = await generator.generate(unoClasses);
-
   const closeTabScript =
     "<script>window.addEventListener('afterprint', (event) => {window.setTimeout(() => {window.close();}, 1);});</script>";
 
@@ -163,7 +151,7 @@ export const printTable = async (
     : null;
 
   const htmlString = `<html><head>${
-    options.linkCSSLib ? "" : "<style>" + css + "</style>"
+    options.linkCSSLib ? "" : "<style>" + options.style + "</style>"
   }${linkContainer ? linkContainer : ""}</head>${closeTabScript}<body>${
     container.outerHTML
   }</body>${

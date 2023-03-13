@@ -9,8 +9,9 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "@mllull/json-table-print": "workspace:^1.0.0",
     "@quasar/extras": "^1.15.11",
+    "@unocss/core": "^0.50.4",
+    "@unocss/preset-uno": "^0.50.4",
     "quasar": "^2.11.7",
     "vue": "^3.2.47"
   },

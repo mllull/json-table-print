@@ -1,10 +1,13 @@
 <script setup lang="ts">
 import { ref } from "vue";
+import { createGenerator } from "@unocss/core";
+import { presetUno } from "@unocss/preset-uno";
+
 import {
   printTable,
   printTableHeadersType,
   printTableOptionsType,
-} from "@mllull/json-table-print";
+} from "../../../src/index";
 
 enum PrintTypeEnum {
   Bootstrap = "BOOTSTRAP",
@@ -153,7 +156,7 @@ const rows = [
 
 const demoTable = ref();
 
-const callPrintTable = (printType: PrintTypeEnum) => {
+const callPrintTable = async (printType: PrintTypeEnum) => {
   let options: printTableOptionsType;
 
   const headers: printTableHeadersType = {
@@ -166,19 +169,30 @@ const callPrintTable = (printType: PrintTypeEnum) => {
     options = {
       headers,
       pageTitle: "Json Table Print - Demo using Bootstrap",
-      pageTitleClass: "h2 text-center mb-4",
-      tableClass: "table table-striped text-center mt-4",
+      classes: {
+        pageTitle: "h2 text-center mb-4",
+        table: "table table-striped text-center mt-4",
+      },
       linkCSSLib:
         "https://cdn.jsdelivr.net/npm/bootstrap/dist/css/bootstrap.min.css",
     };
   } else {
+    const generator = createGenerator({
+      presets: [presetUno()],
+    });
+    const { css } = await generator.generate(
+      " text-4xl text-center text-red-500 mb-4 px-6 w-full text-sm text-left text-gray-500 bg-white border-b py-4 text-left text-xl font-medium text-gray-900"
+    );
     options = {
       headers,
       pageTitle: "Json Table Print - Demo using UnoCSS",
-      pageTitleClass: "text-4xl text-center text-red-500 mb-4",
-      tableClass: "px-6 w-full text-sm text-left text-gray-500",
-      theadClass: "bg-white border-b",
-      thClass: "py-4 text-left text-xl font-medium text-gray-900",
+      classes: {
+        pageTitle: "text-4xl text-center text-red-500 mb-4",
+        table: "px-6 w-full text-sm text-left text-gray-500",
+        thead: "bg-white border-b",
+        th: "py-4 text-left text-xl font-medium text-gray-900",
+      },
+      style: css,
     };
   }
 
