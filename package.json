@@ -24,14 +24,14 @@
     "LICENSE",
     "README.md"
   ],
-  "main": "dist/json-print-table.umd.cjs",
-  "module": "dist/json-print-table.js",
+  "main": "dist/@mllull/json-table-print.umd.cjs",
+  "module": "dist/@mllull/json-table-print.js",
   "types": "dist/index.d.ts",
   "exports": {
     ".": {
       "types": "./dist/index.d.ts",
-      "import": "./dist/json-print-table.js",
-      "require": "./dist/json-print-table.umd.cjs"
+      "import": "./dist/@mllull/json-table-print.js",
+      "require": "./dist/@mllull/json-table-print.umd.cjs"
     }
   },
   "scripts": {

@@ -14,7 +14,7 @@
 Install package:
 
 ```bash
-npm i @mllull/json-print-table
+npm i @mllull/json-table-print
 ```
 
 ```ts
