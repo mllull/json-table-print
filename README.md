@@ -72,7 +72,7 @@ export interface printTableOptionsType {
 printTable(options, jsonData);
 ```
 
-## Expanation of `printTableOptionsType` types:
+## Explanation of `printTableOptionsType` types:
 
 ### `pageTitle`:
 
