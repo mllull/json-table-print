@@ -230,7 +230,7 @@ const callPrintTable = async (printType: PrintTypeEnum) => {
         </div>
       </template>
     </q-table>
-    <p class="q-my-md"><b>Debug output:</b></p>
+    <p class="q-my-md"><b>Current Table JSON output:</b></p>
     <code>{{ demoTable?.filteredSortedRows }}</code>
   </div>
 </template>
