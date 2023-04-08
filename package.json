@@ -1,6 +1,6 @@
 {
   "name": "@mllull/json-table-print",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Renders a HTML Table from JSON data to a new browser tab and prints the table.",
   "author": "Mateu Llull <mateullull88@gmail.com>",
   "license": "MIT",
