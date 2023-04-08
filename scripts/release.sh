@@ -13,7 +13,7 @@ then
   # clear existing ts cache
   rm -rf dist node_modules/.rts2_cache
   yarn run build
-  yarn run build:dts
+  # yarn run build:dts
 
   # generate the version so that the changelog can be generated too and included
   # in the release
