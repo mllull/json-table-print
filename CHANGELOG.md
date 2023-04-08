@@ -1,3 +1,9 @@
+## [1.0.1](https://github.com/mllull/json-table-print/compare/v1.0.0...v1.0.1) (2023-04-08)
+
+### Bug Fixes
+
+- **docs:** Typo. ([397da27](https://github.com/mllull/json-table-print/commit/397da2729ac452af4f7eee3e4b5dbbc05f17911e))
+
 # 1.0.0 (2023-04-08)
 
 ### Bug Fixes
