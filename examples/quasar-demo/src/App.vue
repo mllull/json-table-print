@@ -180,20 +180,26 @@ const callPrintTable = async (printType: PrintTypeEnum) => {
     const generator = createGenerator({
       presets: [presetUno()],
     });
-    const { css } = await generator.generate(
-      " text-4xl text-center text-red-500 mb-4 px-6 w-full text-sm text-left text-gray-500 bg-white border-b py-4 text-left text-xl font-medium text-gray-900"
-    );
+
     options = {
       headers,
       pageTitle: "Json Table Print - Demo using UnoCSS",
       classes: {
         pageTitle: "text-4xl text-center text-red-500 mb-4",
-        table: "px-6 w-full text-sm text-left text-gray-500",
-        thead: "bg-white border-b",
-        th: "py-4 text-left text-xl font-medium text-gray-900",
+        table: "px-6 w-full text-sm text-center text-gray-500",
+        thead: "bg-white border-b text-center",
+        th: "py-4 text-center text-xl font-medium t text-gray-900",
       },
-      style: css,
     };
+
+    const { css } = await generator.generate(
+      options.classes!.pageTitle! +
+        options.classes!.table +
+        options.classes!.thead +
+        options.classes!.th
+    );
+
+    options.style = css;
   }
 
   printTable(options, demoTable.value.filteredSortedRows);
