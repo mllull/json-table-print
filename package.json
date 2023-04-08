@@ -46,14 +46,14 @@
   },
   "devDependencies": {
     "conventional-changelog-cli": "^2.2.2",
-    "lint-staged": "^13.2.0",
-    "prettier": "^2.8.4",
-    "typescript": "^4.9.5",
-    "vite": "^4.1.4",
+    "lint-staged": "^13.2.1",
+    "prettier": "^2.8.7",
+    "typescript": "^5.0.4",
+    "vite": "^4.2.1",
     "yorkie": "^2.0.0"
   },
   "dependencies": {
-    "vite-plugin-dts": "^1.7.3"
+    "vite-plugin-dts": "^2.2.0"
   },
   "gitHooks": {
     "pre-commit": "lint-staged",
