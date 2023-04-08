@@ -7,7 +7,7 @@ import {
   printTable,
   printTableHeadersType,
   printTableOptionsType,
-} from "../../../src/index";
+} from "@mllull/json-table-print";
 
 enum PrintTypeEnum {
   Bootstrap = "BOOTSTRAP",
