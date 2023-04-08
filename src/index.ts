@@ -148,13 +148,11 @@ export const printTable = async (
 
   const linkContainer = options.linkCSSLib
     ? `<link href="${options.linkCSSLib}" rel="stylesheet" onload="window.print()">`
-    : null;
+    : "";
 
   const htmlString = `<html><head>${
-    options.linkCSSLib ? "" : "<style>" + options.style + "</style>"
-  }${linkContainer ? linkContainer : ""}</head>${closeTabScript}<body>${
-    container.outerHTML
-  }</body>${
+    options.style ? "<style>" + options.style + "</style>" : ""
+  }${linkContainer}</head>${closeTabScript}<body>${container.outerHTML}</body>${
     options.linkCSSLib ? "" : "<script>window.print()</script>"
   }</html>`;
 
